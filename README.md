@@ -1,6 +1,19 @@
 # forFrame.js v1.5.3 Animation Collection.
 
-This repository is a collection of animations made with the help of my HTML 5 animation framework called forFrame. All animations in this collection use forFrame.js v1.5.3. This version of forFrame intrudiced a number of new features sense the last collecton that used v1.0.42 which was the first relase of forFrame.
+<div align="center">
+
+<br>
+<img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/footback/gif/gif_1_320.gif">
+
+</div>
+
+This repository is a collection of animations made with the help of my HTML 5 animation framework called forFrame. All animations in this collection use forFrame.js v1.5.3.
+
+
+## Improvements from 1.4.10
+
+* Part forFrame methods
+* Did away with the default white box if not useing and image.
 
 ## Improvements from 1.0.42
 
@@ -11,7 +24,6 @@ This repository is a collection of animations made with the help of my HTML 5 an
 * A Logo property
 * Skin appendRender methods.
 * A viewPort property that sets the size of the canvas
-* Part forFrame methods
 * Many bug fixes, and minor improvements.
 
 ## Future Additions
