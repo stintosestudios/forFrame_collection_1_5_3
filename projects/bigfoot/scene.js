@@ -33,6 +33,55 @@ scene({
             }
 
         }, {
+            id : 'floor',
+            w : 640,
+            h : 600,
+            skin : {
+
+                appendRender : function (ctx) {
+
+                    var x = (640*2) - 1920 * this.percentDone,
+
+                    sx = 1000 - 1500 * this.percentDone;
+
+                    if (sx > 0) {
+
+                        ctx.drawImage(this.img[4],
+                            sx, 0, 500, 500,
+                            0, 0, 640, 600);
+
+                    } else {
+
+                        ctx.drawImage(this.img[4],
+                            0,
+                            0,
+                            500 + sx,
+                            500,
+
+                            Math.abs(x),
+                            0,
+                            640 + x,
+                            600);
+
+                        ctx.drawImage(this.img[4],
+
+                            1500 + sx,
+                            0,
+                            Math.abs(sx),
+                            500,
+
+                            0,
+                            0,
+                            Math.abs(x),
+                            600);
+                             
+
+                    }
+
+                }
+
+            }
+        }, {
             id : 'footarea',
             w : 64,
             h : 128,
@@ -60,10 +109,6 @@ scene({
 
             }
 
-        }, {
-            id : 'floor',
-            w : 640,
-            h : 400
         }
 
     ],
@@ -90,7 +135,8 @@ scene({
                 pt.skin.yOffset = -20;
 
                 pt = this.parts['floor'];
-                pt.y = 280 - 80 * this.sectionPer;
+                //pt.y = 280 - 80 * this.sectionPer;
+                pt.y = -100 - 20 * this.sectionPer;
 
                 pt = this.parts['headarea'];
                 pt.radian = 0.2 + 0.4 * this.sectionPer;
@@ -115,7 +161,9 @@ scene({
                 //pt.skin.renderPartBox = true;
 
                 pt = this.parts['floor'];
-                pt.y = 200 + 1200 * this.sectionPer;
+                //pt.y = 200 + 1000 * this.sectionPer;
+
+                pt.y = -120 + 480 * this.sectionPer;
 
                 pt = this.parts['headarea'];
 
@@ -137,7 +185,9 @@ scene({
 
                 pt = this.parts['floor'];
                 //pt.y = 480 - (400 * this.sectionPer);
-                pt.y = 680 - 400 * this.sectionPer;
+                //pt.y = 680 - 400 * this.sectionPer;
+
+                pt.y = -120 + 480 - 480 * this.sectionPer;
 
                 pt = this.parts['headarea'];
                 pt.radian = 0.4 - 0.4 * this.sectionPer + 0.2;
@@ -196,7 +246,8 @@ scene.load(
         'img/foot.png',
         'img/pathead.png',
         'img/background2.png',
-        '../mylogo_128.png'
+        '../mylogo_128.png',
+        'img/footBackground2.png'
     ],
     function (progress) {
 
