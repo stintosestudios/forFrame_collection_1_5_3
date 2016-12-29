@@ -81,7 +81,43 @@ scene({
                 }
 
             }
+        }, 
+		
+		{
+            id : 'footarea',
+            w : 128,
+            h : 256,
+
+            skin : {
+
+                imgIndex : 0,
+                sw : 93,
+                sh : 85,
+				xOffset : -50,
+				yOffset : -30
+
+            }
+
         }, {
+            id : 'headarea',
+            w : 280,
+            h : 280,
+
+            skin : {
+
+                imgIndex : 1,
+                sx : 0,
+                sy : 0,
+                sw : 128,
+                sh : 128,
+				xOffset: -64
+
+            }
+
+        }
+		
+		/*
+		{
             id : 'footarea',
             w : 64,
             h : 128,
@@ -105,11 +141,13 @@ scene({
                 sx : 0,
                 sy : 0,
                 sw : 128,
-                sh : 128
+                sh : 128,
 
             }
 
         }
+		
+		*/
 
     ],
 
@@ -131,8 +169,8 @@ scene({
 
                 //pt.skin.renderPartBox = true;
 
-                pt.skin.xOffset = -20;
-                pt.skin.yOffset = -20;
+                //pt.skin.xOffset = -20;
+                //pt.skin.yOffset = -20;
 
                 pt = this.parts['floor'];
                 //pt.y = 280 - 80 * this.sectionPer;
