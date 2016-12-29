@@ -9,6 +9,17 @@
 
 This repository is a collection of animations made with the help of my HTML 5 animation framework called forFrame. All animations in this collection use forFrame.js v1.5.3.
 
+## Projects
+
+<div align="center">
+
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/logo"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/logo/thum_128.png"></a>
+
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/footback"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/foorback/thum_128.png"></a>
+
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/yin"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/yin/thum_128.png"></a>
+
+</div>
 
 ## Improvements from 1.4.10
 
