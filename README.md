@@ -15,7 +15,7 @@ This repository is a collection of animations made with the help of my HTML 5 an
 
     <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/logo"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/logo/thum_128.png"></a>
 
-    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/footback"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/foorback/thum_128.png"></a>
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/footback"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/footback/thum_128.png"></a>
 
     <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/yin"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/yin/thum_128.png"></a>
 
@@ -39,5 +39,12 @@ This repository is a collection of animations made with the help of my HTML 5 an
 
 ## Future Additions
 
-The following is what to exspect in future minor releases of forFrame.
+The following is what might be in future minor releases of forFrame.
 
+### dirrect to gif
+
+It Would be nice to dirrectly export to gif, rather then depending on GIMP.
+
+### node.js file export
+
+If possible it would be nice to use node.js tp quickly create gif's and a thum images in the current porject folder with a single click.
