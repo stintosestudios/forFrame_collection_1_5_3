@@ -23,7 +23,7 @@ This repository is a collection of animations made with the help of my HTML 5 an
 
 <div align="center">
 
-    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/bigfoor"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/bigfoot/thum_128.png"></a>
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/bigfoot"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/bigfoot/thum_128.png"></a>
 
 </div>
 
