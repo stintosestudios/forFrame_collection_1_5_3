@@ -30,6 +30,7 @@ scene({
                 appendRender : function (ctx) {
 
                     var totalPoints = 50,
+                    boxI;
 
                     getPoint = function (i) {
 
@@ -38,7 +39,7 @@ scene({
                         return {
 
                             x : this.viewPort.w / totalPoints * i,
-                            y : this.viewPort.h - Math.pow(1.115, i) - (2 * i)
+                            y : this.viewPort.h - Math.pow(1.115, i) - (3 * i)
 
                         }
                     },
@@ -67,25 +68,40 @@ scene({
 
                     },
 
-                    drawBox = function () {
+                    drawBox = function (i) {
 
-                        var i = Math.floor(totalPoints) * this.percentDone,
-                        point = getPoint.call(this, i),
+                        var point,
+                        angle,
+                        size;
+
+                        i = i === undefined ? Math.floor(totalPoints) * this.percentDone : i;
+
+                        point = getPoint.call(this, i);
                         angle = Math.atan2(point.y, point.x);
+
+                        size = 256 - 256 * (i / totalPoints);
 
                         // draw box
                         ctx.save();
                         ctx.strokeStyle = '#00ffff';
                         ctx.lineWidth = 3;
-                        ctx.translate(point.x - 64, point.y - 64);
+                        ctx.translate(point.x - size / 2, point.y - size / 2);
                         ctx.rotate(angle);
-                        ctx.strokeRect(0, 0, 128, 128);
+                        ctx.strokeRect(0, 0, size, size);
                         ctx.restore();
 
                     };
 
                     drawLine.call(this);
-                    drawBox.call(this);
+
+                    boxI = 0;
+                    while (boxI < 55) {
+
+                        drawBox.call(this, boxI + 10 * this.percentDone);
+
+                        boxI += 1;
+
+                    }
 
                 }
             }
