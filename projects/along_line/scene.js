@@ -1,7 +1,7 @@
 
 scene({
 
-    maxFrame : 50,
+    maxFrame : 25,
 
     viewPort : {
 
@@ -39,7 +39,7 @@ scene({
                         return {
 
                             x : this.viewPort.w / totalPoints * i,
-                            y : this.viewPort.h-50 - Math.pow(1.115, i) - (1.9 * i)
+                            y : this.viewPort.h - 50 - Math.pow(1.115, i) - (1.9 * i)
 
                         }
                     },
@@ -83,10 +83,13 @@ scene({
 
                         // draw box
                         ctx.save();
-                        ctx.strokeStyle = 'rgba(0,255,255,'+(1 - i / totalPoints) +')';
+                        ctx.strokeStyle = 'rgba(255,255,255,' + (1 - i / totalPoints) + ')';
+
+                        ctx.fillStyle = 'rgba(0,0,255,' + (1 - i / totalPoints) + ')';
                         ctx.lineWidth = 3;
                         ctx.translate(point.x - size / 2, point.y - size / 2);
                         ctx.rotate(angle);
+                        ctx.fillRect(0, 0, size, size);
                         ctx.strokeRect(0, 0, size, size);
                         ctx.restore();
 
