@@ -39,7 +39,7 @@ scene({
                         return {
 
                             x : this.viewPort.w / totalPoints * i,
-                            y : this.viewPort.h - Math.pow(1.115, i) - (3 * i)
+                            y : this.viewPort.h-50 - Math.pow(1.115, i) - (1.9 * i)
 
                         }
                     },
@@ -52,7 +52,7 @@ scene({
                         ctx.save();
                         while (i < totalPoints) {
 
-                            ctx.strokeStyle = 'rgba(255,255,255,.5)';
+                            ctx.strokeStyle = 'rgba(255,255,255,.2)';
                             ctx.beginPath();
                             point = getPoint.call(this, i - 1);
                             ctx.moveTo(point.x, point.y);
@@ -83,7 +83,7 @@ scene({
 
                         // draw box
                         ctx.save();
-                        ctx.strokeStyle = '#00ffff';
+                        ctx.strokeStyle = 'rgba(0,255,255,'+(1 - i / totalPoints) +')';
                         ctx.lineWidth = 3;
                         ctx.translate(point.x - size / 2, point.y - size / 2);
                         ctx.rotate(angle);
@@ -99,7 +99,7 @@ scene({
 
                         drawBox.call(this, boxI + 10 * this.percentDone);
 
-                        boxI += 1;
+                        boxI += 5;
 
                     }
 
