@@ -45,40 +45,20 @@ scene({
                             x : this.viewPort.w / totalPoints * i,
                             y : this.viewPort.h - Math.pow(1.115, i) - (3 * i)
 
-                            //y : this.viewPort.h - Math.pow(1 + bias * .4, i)
-
                         }
                     };
 
-                    //ctx.strokeRect(0, 0, 32, 32);
+                    i = Math.floor(totalPoints) * this.percentDone;
+                    point = getPoint.call(this, i);
+                    angle = Math.atan2(point.y, point.x);
 
-                    // ctx.moveTo(0, this.viewPort.h);
-                    while (i < totalPoints) {
-
-                        // draw line segment
-
-                        ctx.strokeStyle = '#00ffff';
-                        ctx.beginPath();
-                        point = getPoint.call(this, i - 1);
-                        ctx.moveTo(point.x, point.y);
-
-                        point = getPoint.call(this, i);
-                        ctx.lineTo(point.x, point.y);
-                        ctx.stroke();
-
-                        ctx.strokeStyle = '#00ffff';
-                        angle = Math.atan2(point.y, point.x);
-                        ctx.save();
-                        ctx.translate(point.x - 16, point.y - 16);
-                        ctx.rotate(angle);
-                        ctx.strokeRect(0, 0, 32, 32);
-                        ctx.restore();
-
-                        i += 1;
-
-                    }
-
-                    //ctx.stroke();
+                    // draw
+                    ctx.save();
+                    ctx.strokeStyle = '#00ffff';
+                    ctx.translate(point.x - 64, point.y - 64);
+                    ctx.rotate(angle);
+                    ctx.strokeRect(0, 0, 128, 128);
+                    ctx.restore();
 
                 }
             }
