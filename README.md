@@ -19,12 +19,13 @@ This repository is a collection of animations made with the help of my HTML 5 an
 
     <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/yin"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/yin/thum_128.png"></a>
 
-</div>
-
-<div align="center">
+    <br>
 
     <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/bigfoot"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/bigfoot/thum_128.png"></a>
 
+	
+    <a href="https://github.com/stintosestudios/forFrame_collection_1_5_3/tree/master/projects/along_line"><img src="https://raw.githubusercontent.com/stintosestudios/forFrame_collection_1_5_3/master/projects/along_line/thum_128.png"></a>
+	
 </div>
 
 ## Improvements from 1.4.10
