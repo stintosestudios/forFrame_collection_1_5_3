@@ -43,9 +43,9 @@ scene({
                         return {
 
                             x : this.viewPort.w / totalPoints * i,
-                            //y : this.viewPort.h - Math.pow(1.127, i)
+                            y : this.viewPort.h - Math.pow(1.115, i) - (3 * i)
 
-                            y : this.viewPort.h - Math.pow(1 + bias * .4, i)
+                            //y : this.viewPort.h - Math.pow(1 + bias * .4, i)
 
                         }
                     };
@@ -68,14 +68,11 @@ scene({
 
                         ctx.strokeStyle = '#00ffff';
                         angle = Math.atan2(point.y, point.x);
-
-                        x = Math.cos(angle) * 100 + point.x;
-                        y = Math.sin(angle) * 100 + point.y;
-
-                        ctx.beginPath();
-                        ctx.moveTo(point.x, point.y);
-                        ctx.lineTo(x, y);
-                        ctx.stroke();
+                        ctx.save();
+                        ctx.translate(point.x - 16, point.y - 16);
+                        ctx.rotate(angle);
+                        ctx.strokeRect(0, 0, 32, 32);
+                        ctx.restore();
 
                         i += 1;
 
