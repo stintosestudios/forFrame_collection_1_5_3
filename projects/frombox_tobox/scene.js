@@ -22,9 +22,7 @@ scene({
     },
 
     // define some parts
-    parts : [
-
-        {
+    parts : [{
             id : 'the_area',
             w : 480,
             h : 360,
@@ -49,15 +47,39 @@ scene({
                         y : 0,
                         radian : 0
                     },
-                    angle;
+                    angle,
+                    sizePart,
+                    size,
+                    offset = {
 
-                    toBox.y = this.viewPort.h - toBox.h;
+                        x : 200,
+                        y : -100
 
-                    angle = 4.71 + .785 - .785 * this.percentDone;
+                    }
+
+                    size = 128 + 128 * this.percentDone;
+                    toBox.w = size;
+                    toBox.h = size;
+                    toBox.radian =  - .785 * this.percentDone;
+                    toBox.x = offset.x;
+                    toBox.y = offset.y + this.viewPort.h - size + (size * this.percentDone);
+
+                    angle = 4.71 + .785 - .785 * this.percentDone,
+                    sizePart = toBox.w / 4,
+                    size = sizePart + sizePart * 3 / 2 * this.percentDone;
 
                     fromBox.radian = .785 - .785 * this.percentDone;
-                    fromBox.x = Math.cos(angle) * (toBox.w / 1.5) + (toBox.x + toBox.w / 2);
-                    fromBox.y = Math.sin(angle) * (toBox.h / 1.5) + (toBox.y + toBox.h / 2);
+                    fromBox.w = size;
+                    fromBox.h = size;
+                    fromBox.x = Math.cos(angle) * (toBox.w / 2) + toBox.x;
+                    fromBox.y = Math.sin(angle) * (toBox.h / 2) + toBox.y;
+
+                    ctx.save();
+                    ctx.translate(toBox.x, toBox.y);
+                    ctx.rotate(toBox.radian);
+                    ctx.strokeStyle = '#00ffff';
+                    ctx.strokeRect(-toBox.w / 2, -toBox.h / 2, toBox.w, toBox.h);
+                    ctx.restore();
 
                     ctx.save();
                     ctx.translate(fromBox.x, fromBox.y);
@@ -65,9 +87,6 @@ scene({
                     ctx.strokeStyle = '#00ffff';
                     ctx.strokeRect(-fromBox.w / 2, -fromBox.h / 2, fromBox.w, fromBox.h);
                     ctx.restore();
-
-                    ctx.strokeStyle = '#00ffff';
-                    ctx.strokeRect(toBox.x, toBox.y, toBox.w, toBox.h);
 
                 }
             }
