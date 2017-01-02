@@ -30,63 +30,57 @@ scene({
             skin : {
                 appendRender : function (ctx) {
 
-                    var fromRadian = 1,
-
-                    fromBox = {
-                        w : 64,
-                        h : 64,
-                        x : 0,
-                        y : 0,
-                        radian : 1
-                    },
-
-                    toBox = {
-                        w : 128,
-                        h : 128,
-                        x : 200,
-                        y : 0,
-                        radian : 0
-                    },
+                    var fromBox = {},
+                    toBox = {},
                     angle,
                     sizePart,
                     size,
+                    index = 0,
                     offset = {
 
-                        x : 200,
-                        y : -100
+                        x : 240,
+                        y : -150
+
+                    },
+                    level = -1;
+                    while (level < 2) {
+
+                        index = level + this.percentDone;
+
+                        size = 128 + 128 * index;
+                        toBox.w = size;
+                        toBox.h = size;
+                        toBox.radian =  - .785 * index;
+                        toBox.x = offset.x;
+                        toBox.y = offset.y + this.viewPort.h - size + (size * index);
+
+                        angle = 4.71 + .785 - .785 * index,
+                        sizePart = toBox.w / 4,
+                        size = sizePart + sizePart * 3 / 2 * index;
+
+                        fromBox.radian = .785 - .785 * index;
+                        fromBox.w = size;
+                        fromBox.h = size;
+                        fromBox.x = Math.cos(angle) * (toBox.w / 2) + toBox.x;
+                        fromBox.y = Math.sin(angle) * (toBox.h / 2) + toBox.y;
+
+                        ctx.save();
+                        ctx.translate(toBox.x, toBox.y);
+                        ctx.rotate(toBox.radian);
+                        ctx.strokeStyle = '#00ffff';
+                        ctx.strokeRect(-toBox.w / 2, -toBox.h / 2, toBox.w, toBox.h);
+                        ctx.restore();
+
+                        ctx.save();
+                        ctx.translate(fromBox.x, fromBox.y);
+                        ctx.rotate(fromBox.radian);
+                        ctx.strokeStyle = '#00ffff';
+                        ctx.strokeRect(-fromBox.w / 2, -fromBox.h / 2, fromBox.w, fromBox.h);
+                        ctx.restore();
+
+                        level += 1;
 
                     }
-
-                    size = 128 + 128 * this.percentDone;
-                    toBox.w = size;
-                    toBox.h = size;
-                    toBox.radian =  - .785 * this.percentDone;
-                    toBox.x = offset.x;
-                    toBox.y = offset.y + this.viewPort.h - size + (size * this.percentDone);
-
-                    angle = 4.71 + .785 - .785 * this.percentDone,
-                    sizePart = toBox.w / 4,
-                    size = sizePart + sizePart * 3 / 2 * this.percentDone;
-
-                    fromBox.radian = .785 - .785 * this.percentDone;
-                    fromBox.w = size;
-                    fromBox.h = size;
-                    fromBox.x = Math.cos(angle) * (toBox.w / 2) + toBox.x;
-                    fromBox.y = Math.sin(angle) * (toBox.h / 2) + toBox.y;
-
-                    ctx.save();
-                    ctx.translate(toBox.x, toBox.y);
-                    ctx.rotate(toBox.radian);
-                    ctx.strokeStyle = '#00ffff';
-                    ctx.strokeRect(-toBox.w / 2, -toBox.h / 2, toBox.w, toBox.h);
-                    ctx.restore();
-
-                    ctx.save();
-                    ctx.translate(fromBox.x, fromBox.y);
-                    ctx.rotate(fromBox.radian);
-                    ctx.strokeStyle = '#00ffff';
-                    ctx.strokeRect(-fromBox.w / 2, -fromBox.h / 2, fromBox.w, fromBox.h);
-                    ctx.restore();
 
                 }
             }
