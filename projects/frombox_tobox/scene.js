@@ -1,7 +1,7 @@
 
 scene({
 
-    maxFrame : 25,
+    maxFrame : 100,
 
     viewPort : {
 
@@ -36,50 +36,60 @@ scene({
                     sizePart,
                     size,
                     index = 0,
-					startRadian,
+                    opacity = 1,
+                    startRadian,
                     offset = {
 
                         x : 240,
                         y : -150
 
                     },
-                    level = -4;
-                    while (level < 4) {
+                    level = -1;
+                    while (level < 3) {
 
                         index = level + this.percentDone;
 
+                        var startOpacity = 1 - 1 / 4 * (level + 1);
+
+                        opacity = startOpacity - 1 / 4 * this.percentDone;
+
+                        startRadian = .785;
+
+                        //from box
                         size = 128 + 128 * index;
-                        
-						startRadian = .785;
-						
                         toBox.w = size;
                         toBox.h = size;
-                        toBox.radian =  startRadian + -.785 * index;
+                        toBox.radian = startRadian +  - .785 * index;
                         toBox.x = offset.x;
                         toBox.y = offset.y + this.viewPort.h - size + (size * index);
 
+                        // to box
                         angle = startRadian + 4.71 + .785 - .785 * index,
                         sizePart = toBox.w / 4,
                         size = sizePart + sizePart * 3 / 2 * index;
-
                         fromBox.radian = startRadian + .785 - .785 * index;
                         fromBox.w = size;
                         fromBox.h = size;
                         fromBox.x = Math.cos(angle) * (toBox.w / 2) + toBox.x;
                         fromBox.y = Math.sin(angle) * (toBox.h / 2) + toBox.y;
 
+                        // draw
+                        ctx.globalAlpha = opacity;
+                        ctx.fillStyle = '#00ffff';
+
+                        // draw to box
                         ctx.save();
                         ctx.translate(toBox.x, toBox.y);
+
                         ctx.rotate(toBox.radian);
-                        ctx.strokeStyle = '#00ffff';
-                        ctx.strokeRect(-toBox.w / 2, -toBox.h / 2, toBox.w, toBox.h);
+                        ctx.fillRect(-toBox.w / 2, -toBox.h / 2, toBox.w, toBox.h);
                         ctx.restore();
 
+                        // draw from box
                         ctx.save();
                         ctx.translate(fromBox.x, fromBox.y);
                         ctx.rotate(fromBox.radian);
-                        ctx.strokeStyle = '#00ffff';
-                        ctx.strokeRect(-fromBox.w / 2, -fromBox.h / 2, fromBox.w, fromBox.h);
+                        ctx.fillRect(-fromBox.w / 2, -fromBox.h / 2, fromBox.w, fromBox.h);
                         ctx.restore();
 
                         level += 1;
