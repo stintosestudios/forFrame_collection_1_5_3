@@ -36,29 +36,33 @@ scene({
                     sizePart,
                     size,
                     index = 0,
+					startRadian,
                     offset = {
 
                         x : 240,
                         y : -150
 
                     },
-                    level = -1;
-                    while (level < 2) {
+                    level = -4;
+                    while (level < 4) {
 
                         index = level + this.percentDone;
 
                         size = 128 + 128 * index;
+                        
+						startRadian = .785;
+						
                         toBox.w = size;
                         toBox.h = size;
-                        toBox.radian =  - .785 * index;
+                        toBox.radian =  startRadian + -.785 * index;
                         toBox.x = offset.x;
                         toBox.y = offset.y + this.viewPort.h - size + (size * index);
 
-                        angle = 4.71 + .785 - .785 * index,
+                        angle = startRadian + 4.71 + .785 - .785 * index,
                         sizePart = toBox.w / 4,
                         size = sizePart + sizePart * 3 / 2 * index;
 
-                        fromBox.radian = .785 - .785 * index;
+                        fromBox.radian = startRadian + .785 - .785 * index;
                         fromBox.w = size;
                         fromBox.h = size;
                         fromBox.x = Math.cos(angle) * (toBox.w / 2) + toBox.x;
