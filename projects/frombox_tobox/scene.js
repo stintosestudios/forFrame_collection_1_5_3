@@ -1,7 +1,7 @@
 
 scene({
 
-    maxFrame : 100,
+    maxFrame : 50,
 
     viewPort : {
 
