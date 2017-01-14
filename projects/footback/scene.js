@@ -1,4 +1,11 @@
 
+var backgroundData = function(options){
+	
+	
+	
+};
+
+
 scene({
 
     maxFrame : 100,
