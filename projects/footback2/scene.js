@@ -167,11 +167,15 @@ scene({
         }, {
 
             id : 'feet',
-            w : 125,
-            h : 125,
-            x : 300,
-            y : 50 + 125 + 20,
+            w : 200,
+            h : 200,
+            x : 0,
+            y : 120,
             forFrame : function (pt) {
+
+                var bias = Math.abs(.5 - this.percentDone) / .5;
+
+                pt.x = 240 - pt.w / 2 - 20 + 40 * bias;
 
                 pt.radian = Math.PI * 2 - Math.PI * 2 * this.percentDone;
             },
