@@ -1,30 +1,32 @@
 
-var backgroundData = function (state) {
+/*
 
-    var sx;
+drawData = backgroundData({
 
-    if (state.percent === undefined) {
-        state.percent = 0;
-    }
+    percent : this.percentDone,
 
-    state.source = {
+    source : {
         tw : 1500, // total width, and height.
         th : 500,
         vw : 500, // view width, and height
         vh : 500
-    };
+    },
 
-    // same for the draw
-    /*
-    state.drawTo = {
-    tw : 300,
-    th : 100,
-    vw : 100,
-    vh : 100
-    };
-     */
+    drawTo : {
+        tw : 300,
+        th : 100,
+        vw : 100,
+        vh : 100
+    }
 
-    var draws = [];
+});
+
+ */
+
+var backgroundData = function (state) {
+
+    var sx,
+    draws = [];
 
     // find source x pointer, and scaled version
     sx = (state.source.tw - state.source.vw) - state.source.tw * state.percent;
@@ -133,6 +135,13 @@ scene({
                     drawData = backgroundData({
 
                             percent : this.percentDone,
+
+                            source : {
+                                tw : 1500, // total width, and height.
+                                th : 500,
+                                vw : 500, // view width, and height
+                                vh : 500
+                            },
 
                             drawTo : {
                                 tw : pt.w * 3,
